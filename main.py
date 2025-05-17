@@ -1,15 +1,9 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from configs.database import Base, engine
+from routes import auth
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Schema
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: bool = False
-
-# Route GET
-@app.get("/")
-def read_root():
-    return {"message": "Hello world!"}
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["Auth"])
