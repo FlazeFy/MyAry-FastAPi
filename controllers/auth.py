@@ -61,7 +61,7 @@ def login_user(user: UserLogin, db: Session):
     # Response
     return {
         "access_token": access_token, 
-        "refresh_auth_token": refresh_auth_token, 
+        "refresh_token": refresh_auth_token, 
         "message": "User login successfully",
         "status": "success"
     }
