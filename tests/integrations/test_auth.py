@@ -15,7 +15,7 @@ def test_register_user():
     data = response.json()
 
     # Check Default Response
-    assert response.status_code == 200
+    assert response.status_code == 201
     assert data['status'] == 'success'
 
     # Check String Object
