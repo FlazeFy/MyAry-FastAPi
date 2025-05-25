@@ -105,7 +105,6 @@ def login_user(user: UserLogin, db: Session):
             }
         )
 
-
 def refresh_auth_token(request: Request, db: Session):
     try:
         # Extract Refresh Token From Header

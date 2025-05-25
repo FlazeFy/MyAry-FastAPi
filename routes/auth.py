@@ -111,8 +111,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
                 }
             }
         }
-    }
-)
+    })
 def login(user: UserLogin, db: Session = Depends(get_db)):
     return login_user(user, db)
 
@@ -155,7 +154,6 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
                 }
             }
         }
-    }
-)
+    })
 def refresh(request: Request, db: Session = Depends(get_db)):
     return refresh_auth_token(request, db)
