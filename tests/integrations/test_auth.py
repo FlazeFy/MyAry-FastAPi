@@ -4,8 +4,8 @@ base_url = "http://localhost:8000/api/v1"
 
 # Dummy test user
 test_user = {
-    "username": "testuser",
-    "email": "testuser@example.com",
+    "username": "testuser123",
+    "email": "testuser123@example.com",
     "password": "test123"
 }
 

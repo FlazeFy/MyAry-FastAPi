@@ -4,9 +4,9 @@ from controllers.schemas import UserCreate, UserLogin
 from controllers.auth import register_user, login_user, get_db, refresh_auth_token
 from fastapi import Request
 
-router = APIRouter()
+router_auth = APIRouter()
 
-@router.post("/register", response_model=dict, 
+@router_auth.post("/register", response_model=dict, 
     summary="Register",
     description="This request is used to create a new account for user using username, email, and password",
     tags=["Auth"],
@@ -60,7 +60,7 @@ router = APIRouter()
 def register(user: UserCreate, db: Session = Depends(get_db)):
     return register_user(user, db)
 
-@router.post("/login", response_model=dict,
+@router_auth.post("/login", response_model=dict,
     summary="User Login",
     description="Authenticate user with username and password, returning access and refresh tokens.",
     tags=["Auth"],
@@ -115,7 +115,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
 def login(user: UserLogin, db: Session = Depends(get_db)):
     return login_user(user, db)
 
-@router.post("/refresh", response_model=dict,
+@router_auth.post("/refresh", response_model=dict,
     summary="Refresh Access Token",
     description="Use a valid refresh token from the Authorization header to get a new access token.",
     tags=["Auth"],
