@@ -13,5 +13,6 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 def main_menu_keyboard():
     keyboard = [
         [InlineKeyboardButton("Getting Started", callback_data='1')],
+        [InlineKeyboardButton("Save My Diary", callback_data='2')],
     ]
     return InlineKeyboardMarkup(keyboard)
